@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Climassist_Last.props" />
+</Project>

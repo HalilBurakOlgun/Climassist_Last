@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Burak\\Desktop\\Climassist_Last\\Climassist_Last\\Climassist_Last.csproj": {}
+    "C:\\Users\\Burak\\Desktop\\Climassist_Last\\climassist_last\\Climassist_Last.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Burak\\Desktop\\Climassist_Last\\Climassist_Last\\Climassist_Last.csproj": {
+    "C:\\Users\\Burak\\Desktop\\Climassist_Last\\climassist_last\\Climassist_Last.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\Climassist_Last\\Climassist_Last.csproj",
+        "projectUniqueName": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\climassist_last\\Climassist_Last.csproj",
         "projectName": "Climassist_Last",
-        "projectPath": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\Climassist_Last\\Climassist_Last.csproj",
+        "projectPath": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\climassist_last\\Climassist_Last.csproj",
         "packagesPath": "C:\\Users\\Burak\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\Climassist_Last\\obj\\",
+        "outputPath": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\climassist_last\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -49,6 +49,22 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
