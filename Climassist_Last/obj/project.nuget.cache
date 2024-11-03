@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Pt2DLwRr1QY=",
+  "dgSpecHash": "/roCrHPkFKg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\climassist_last\\Climassist_Last.csproj",
+  "projectFilePath": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\Climassist_Last\\Climassist_Last.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Burak\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Burak\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
