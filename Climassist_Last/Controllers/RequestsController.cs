@@ -37,30 +37,26 @@ namespace Climassist_Last.Controllers
             return View(request);
         }
 
-        // POST: Requests/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("UserName,UserSurname,Email,ClientType,Phone,RequestType,SparePartType,RecoveryTime,UnitType,Message")] Requests request)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                try
                 {
                     request.Status = "Beklemede";
                     request.CreatedAt = DateTime.Now;
-
                     _context.Add(request);
                     await _context.SaveChangesAsync();
-
-                    TempData["Success"] = "Talebiniz başarıyla oluşturuldu.";
-                    return RedirectToAction("Index", "Home"); // Ana sayfaya yönlendir
+                    TempData["SuccessMessage"] = "Talebiniz başarıyla oluşturuldu.";
+                    return RedirectToAction("Index", "Home");
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", "Talep oluşturulurken bir hata oluştu: " + ex.Message);
                 }
             }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError("", "Talep oluşturulurken bir hata oluştu: " + ex.Message);
-            }
-
             return View(request);
         }
     }

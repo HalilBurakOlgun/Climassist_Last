@@ -8,19 +8,19 @@ namespace Climassist_Last.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Ad alanı zorunludur")]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Soyad alanı zorunludur")]
-        public string SurName { get; set; }
+        public string SurName { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Şifre alanı zorunludur")]
-        public string Password { get; set; }
+        public string Password { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Email alanı zorunludur")]
         [EmailAddress(ErrorMessage = "Geçerli bir email adresi giriniz")]
-        public string Email { get; set; }
+        public string Email { get; set; } = string.Empty;
 
-        public string UserType { get; set; } = "Customer"; // Varsayılan değer
+        public string UserType { get; set; } = "Customer";
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
     }
