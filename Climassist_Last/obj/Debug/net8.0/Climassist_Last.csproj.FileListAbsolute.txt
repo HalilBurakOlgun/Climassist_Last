@@ -9,6 +9,7 @@ C:\Users\Burak\Desktop\Climassist_Last\climassist_last\bin\Debug\net8.0\Climassi
 C:\Users\Burak\Desktop\Climassist_Last\climassist_last\bin\Debug\net8.0\Azure.Core.dll
 C:\Users\Burak\Desktop\Climassist_Last\climassist_last\bin\Debug\net8.0\Azure.Identity.dll
 C:\Users\Burak\Desktop\Climassist_Last\climassist_last\bin\Debug\net8.0\Humanizer.dll
+C:\Users\Burak\Desktop\Climassist_Last\climassist_last\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\Burak\Desktop\Climassist_Last\climassist_last\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\Burak\Desktop\Climassist_Last\climassist_last\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Burak\Desktop\Climassist_Last\climassist_last\bin\Debug\net8.0\Microsoft.Build.dll
@@ -31,13 +32,7 @@ C:\Users\Burak\Desktop\Climassist_Last\climassist_last\bin\Debug\net8.0\Microsof
 C:\Users\Burak\Desktop\Climassist_Last\climassist_last\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Burak\Desktop\Climassist_Last\climassist_last\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\Burak\Desktop\Climassist_Last\climassist_last\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\Users\Burak\Desktop\Climassist_Last\climassist_last\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
-C:\Users\Burak\Desktop\Climassist_Last\climassist_last\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\Burak\Desktop\Climassist_Last\climassist_last\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\Burak\Desktop\Climassist_Last\climassist_last\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
-C:\Users\Burak\Desktop\Climassist_Last\climassist_last\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
-C:\Users\Burak\Desktop\Climassist_Last\climassist_last\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\Burak\Desktop\Climassist_Last\climassist_last\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\Users\Burak\Desktop\Climassist_Last\climassist_last\bin\Debug\net8.0\Microsoft.Identity.Client.dll
 C:\Users\Burak\Desktop\Climassist_Last\climassist_last\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
 C:\Users\Burak\Desktop\Climassist_Last\climassist_last\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll

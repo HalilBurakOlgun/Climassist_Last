@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Climassist_Last.Data;
 using Climassist_Last.Models;
-using System;
 
 namespace Climassist_Last.Controllers
 {
@@ -15,42 +14,54 @@ namespace Climassist_Last.Controllers
             _context = context;
         }
 
-        public IActionResult Create()
+        // GET: Requests
+        public async Task<IActionResult> Index()
         {
-            // Session'dan ad ve soyadı çek
-            ViewBag.UserName = HttpContext.Session.GetString("Name");
-            ViewBag.UserSurname = HttpContext.Session.GetString("Surname");
-            ViewBag.IsLoggedIn = !string.IsNullOrEmpty(ViewBag.UserName); // Login kontrolü
-
-            return View();
+            return View(await _context.Requests.ToListAsync());
         }
 
+        // GET: Requests/Create
+        public IActionResult Create()
+        {
+            // Session'dan kullanıcı bilgilerini al
+            var userName = HttpContext.Session.GetString("UserName");
+            var userSurname = HttpContext.Session.GetString("UserSurname");
+
+            // Yeni bir Requests nesnesi oluştur ve varsayılan değerleri ata
+            var request = new Requests
+            {
+                UserName = userName ?? "",
+                UserSurname = userSurname ?? ""
+            };
+
+            return View(request);
+        }
+
+        // POST: Requests/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("UserName,UserSurname,Email,ClientType,Phone,RequestType,SparePartType,RecoveryTime,UnitType,Message")] Requests request)
         {
-            if (ModelState.IsValid)
+            try
             {
-                try
+                if (ModelState.IsValid)
                 {
                     request.Status = "Beklemede";
                     request.CreatedAt = DateTime.Now;
+
                     _context.Add(request);
                     await _context.SaveChangesAsync();
-                    TempData["SuccessMessage"] = "Talebiniz başarıyla oluşturuldu.";
-                    return RedirectToAction("Index", "Home");
-                }
-                catch (Exception ex)
-                {
-                    ModelState.AddModelError("", "Talep oluşturulurken bir hata oluştu.");
+
+                    TempData["Success"] = "Talebiniz başarıyla oluşturuldu.";
+                    return RedirectToAction("Index", "Home"); // Ana sayfaya yönlendir
                 }
             }
-            return View(request);
-        }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Talep oluşturulurken bir hata oluştu: " + ex.Message);
+            }
 
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.Requests.ToListAsync());
+            return View(request);
         }
     }
 }

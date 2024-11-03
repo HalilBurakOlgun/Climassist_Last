@@ -1,59 +1,65 @@
 @model Climassist_Last.Models.Requests
-
 <section id="services" class="services">
     <div class="container">
         <div class="section-title">
             <h2>Bakım Talebinizi Oluşturun</h2>
             <p class="description">Bakım talebinizi bize çevrimiçi olarak iletebilirsiniz. Size en kısa sürede dönüş
                 yapabilmemiz için aşağıdaki kısa formu doldurarak detayları bizimle paylaşmanızı rica ederiz.</p>
-            <form action="Create" method="post" id="requestForm">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Ad</label>
-                        <input type="text" name="UserName" class="form-control" value="@ViewBag.UserName"
-                        @(ViewBag.IsLoggedIn ? "readonly" : "") required />
-                    </div>
+        </div>
 
-                    <div class="form-group">
-                        <label>Soyad</label>
-                        <input type="text" name="UserSurname" class="form-control" value="@ViewBag.UserSurname"
-                        @(ViewBag.IsLoggedIn ? "readonly" : "") required />
-                    </div>
+        <form asp-controller="Requests" asp-action="Create" method="post">
+            <div class="row">
+                <div class="col-md-4 form-group">
+                    <label asp-for="UserName">Ad</label>
+                    <input asp-for="UserName" class="form-control" required autocomplete="given-name" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
                 </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" name="Email" class="form-control" required />
-                    </div>
-                    <div class="form-group col-md-6">
-                        <select name="ClientType" id="ClientType" class="form-select" required>
-                            <option value="">Seçiniz</option>
-                            <option value="Bireysel">Bireysel</option>
-                            <option value="Kurumsal">Kurumsal</option>
-                        </select>
-                    </div>
+                <div class="col-md-4 form-group">
+                    <label asp-for="UserSurname">Soyad</label>
+                    <input asp-for="UserSurname" class="form-control" required autocomplete="family-name" />
+                    <span asp-validation-for="UserSurname" class="text-danger"></span>
                 </div>
-
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <input type="tel" name="Phone" id="Phone" class="form-control" placeholder="Tel No: 05XX1112233"
-                            required />
-                    </div>
-                    <div class="form-group col-md-6">
-                        <select name="RequestType" id="RequestType" class="form-select" required
-                            onchange="updateFormFields()">
-                            <option value="">Seçiniz</option>
-                            <option value="Yedek Parça">Yedek Parça</option>
-                            <option value="Bakım Aralığı">Bakım Aralığı</option>
-                            <option value="Montaj ve Kurulum">Montaj ve Kurulum</option>
-                        </select>
-                    </div>
+                <div class="col-md-4 form-group">
+                    <label asp-for="Email">E-posta</label>
+                    <input asp-for="Email" class="form-control" type="email" required autocomplete="email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
+            </div>
 
-                <div class="form-row" id="sparePartFields" style="display: none;">
-                    <div class="form-group col-md-6">
-                        <select name="SparePartType" id="SparePartType" class="form-select">
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label asp-for="ClientType">Müşteri Tipi</label>
+                    <select asp-for="ClientType" class="form-select" required autocomplete="off">
+                        <option value="">Seçiniz</option>
+                        <option value="Bireysel">Bireysel</option>
+                        <option value="Kurumsal">Kurumsal</option>
+                    </select>
+                    <span asp-validation-for="ClientType" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label asp-for="Phone">Telefon</label>
+                    <input asp-for="Phone" class="form-control" placeholder="05XX1112233" required autocomplete="tel" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label asp-for="RequestType">Talep Türü</label>
+                    <select asp-for="RequestType" class="form-select" required onchange="updateFormFields()">
+                        <option value="">Seçiniz</option>
+                        <option value="Yedek Parça">Yedek Parça</option>
+                        <option value="Bakım Aralığı">Bakım Aralığı</option>
+                        <option value="Montaj ve Kurulum">Montaj ve Kurulum</option>
+                    </select>
+                    <span asp-validation-for="RequestType" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div id="sparePartFields" style="display: none;">
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label asp-for="SparePartType">Yedek Parça Tipi</label>
+                        <select asp-for="SparePartType" class="form-select">
                             <option value="">Seçiniz</option>
                             <option value="Split Klima">Split / RAC / CAC / PAC</option>
                             <option value="VRF">VRF / DVM S2 / S / PlusIV</option>
@@ -61,10 +67,13 @@
                         </select>
                     </div>
                 </div>
+            </div>
 
-                <div class="form-row" id="maintenanceFields" style="display: none;">
-                    <div class="form-group col-md-6">
-                        <select name="RecoveryTime" id="RecoveryTime" class="form-select">
+            <div id="maintenanceFields" style="display: none;">
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label asp-for="RecoveryTime">Bakım Aralığı</label>
+                        <select asp-for="RecoveryTime" class="form-select">
                             <option value="">Seçiniz</option>
                             <option value="3 Aylık">3 aylık</option>
                             <option value="6 Aylık">6 aylık</option>
@@ -72,30 +81,34 @@
                         </select>
                     </div>
                 </div>
+            </div>
 
-                <div class="form-row" id="unitTypeFields" style="display: none;">
-                    <div class="form-group col-md-6">
-                        <select name="UnitType" id="UnitType" class="form-select">
+            <div id="unitTypeFields" style="display: none;">
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label asp-for="UnitType">Ünite Tipi</label>
+                        <select asp-for="UnitType" class="form-select">
                             <option value="">Seçiniz</option>
                             <option value="İç Ünite">İç Ünite</option>
                             <option value="Dış Ünite">Dış Ünite</option>
                         </select>
                     </div>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <textarea name="Message" id="Message" class="form-control" rows="4" placeholder="Mesajınız"
-                        required></textarea>
-                </div>
+            <div class="form-group">
+                <label asp-for="Message">Mesajınız</label>
+                <textarea asp-for="Message" class="form-control" rows="4" required autocomplete="off"></textarea>
+                <span asp-validation-for="Message" class="text-danger"></span>
+            </div>
 
-                <input type="hidden" name="Status" id="Status" value="Beklemede" />
-                <input type="hidden" name="CreatedAt" id="CreatedAt" value="@DateTime.Now" />
+            <input type="hidden" asp-for="Status" value="Beklemede" />
+            <input type="hidden" asp-for="CreatedAt" value="@DateTime.Now" />
 
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary">Talep Oluştur</button>
-                </div>
-            </form>
-        </div>
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary">Talep Oluştur</button>
+            </div>
+        </form>
     </div>
 </section>
 
