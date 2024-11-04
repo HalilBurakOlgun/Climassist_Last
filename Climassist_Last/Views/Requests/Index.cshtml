@@ -36,9 +36,10 @@
                         <p><strong>Müşteri Tipi:</strong> @item.ClientType</p>
                         <p><strong>Telefon:</strong> @item.Phone</p>
                         <p><strong>Yedek Parça Tipi:</strong> @item.SparePartType</p>
-                        <p><strong>Kurtarma Süresi:</strong> @item.RecoveryTime</p>
+                        <p><strong>Bakım Aralığı:</strong> @item.RecoveryTime</p>
                         <p><strong>Ünite Tipi:</strong> @item.UnitType</p>
                         <p><strong>Mesaj:</strong> @item.Message</p>
+                        
                         @if (item.Status == "Beklemede")
                         {
                             <form asp-action="CancelRequest" asp-route-id="@item.Id" method="post">
@@ -47,6 +48,21 @@
                                     onclick="return confirm('Bu talebi iptal etmek istediğinizden emin misiniz?')">
                                     İptal Et
                                 </button>
+                            </form>
+                        }
+                        
+                        @if (Context.Session.GetString("UserType") == "Admin" || Context.Session.GetString("UserType") == "Staff")
+                        {
+                            <form asp-action="UpdateStatus" method="post" class="mt-3">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="id" value="@item.Id" />
+                                <select name="newStatus" class="form-select">
+                                    <option value="Beklemede">Beklemede</option>
+                                    <option value="İşleme Alındı">İşleme Alındı</option>
+                                    <option value="Tamamlandı">Tamamlandı</option>
+                                    <option value="İptal Edildi">İptal Edildi</option>
+                                </select>
+                                <button type="submit" class="btn btn-primary btn-sm mt-2">Durumu Güncelle</button>
                             </form>
                         }
                     </div>
@@ -59,6 +75,7 @@ else
 {
     <p>Henüz bir talebiniz bulunmamaktadır.</p>
 }
+
 <style>
     .card {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
