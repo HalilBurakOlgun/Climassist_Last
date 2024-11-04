@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "IEgugydcKuzl4WpNraJxTU0+/WGt/uABPfrY26y5p3M=",
+  "Hash": "iPA729HWaNpcTZnHj6TBi8pdJ2eSt5LwYSEY0ZD+oQs=",
   "Source": "Climassist_Last",
   "BasePath": "_content/Climassist_Last",
   "Mode": "Default",
@@ -53,25 +53,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\climassist_Last\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Climassist_Last.bundle.scp.css"
-    },
-    {
-      "Identity": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\climassist_Last\\wwwroot\\climassist_logo.png",
-      "SourceId": "Climassist_Last",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\climassist_Last\\wwwroot\\",
-      "BasePath": "_content/Climassist_Last",
-      "RelativePath": "climassist_logo.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\climassist_logo.png"
     },
     {
       "Identity": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\climassist_Last\\wwwroot\\css\\site.css",
@@ -167,6 +148,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\apple-touch-icon.png"
+    },
+    {
+      "Identity": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\climassist_Last\\wwwroot\\img\\climassist_logo.png",
+      "SourceId": "Climassist_Last",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\climassist_Last\\wwwroot\\",
+      "BasePath": "_content/Climassist_Last",
+      "RelativePath": "img/climassist_logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\climassist_logo.png"
     },
     {
       "Identity": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\climassist_Last\\wwwroot\\img\\cls-bg.png",

@@ -5,10 +5,6 @@
       "PackagePath": "staticwebassets\\Climassist_Last.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\climassist_Last\\wwwroot\\climassist_logo.png",
-      "PackagePath": "staticwebassets\\climassist_logo.png"
-    },
-    {
       "Id": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\climassist_Last\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -27,6 +23,10 @@
     {
       "Id": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\climassist_Last\\wwwroot\\img\\apple-touch-icon.png",
       "PackagePath": "staticwebassets\\img\\apple-touch-icon.png"
+    },
+    {
+      "Id": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\climassist_Last\\wwwroot\\img\\climassist_logo.png",
+      "PackagePath": "staticwebassets\\img\\climassist_logo.png"
     },
     {
       "Id": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\climassist_Last\\wwwroot\\img\\cls-bg.png",
