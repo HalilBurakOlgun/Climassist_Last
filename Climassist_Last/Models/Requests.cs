@@ -6,6 +6,8 @@ namespace Climassist_Last.Models
     public class Requests
     {
         public int Id { get; set; }
+        public int UserId { get; set; }
+
 
         [Required]
         [StringLength(100)]
@@ -38,6 +40,7 @@ namespace Climassist_Last.Models
         public string Message { get; set; } = string.Empty;
 
         public string Status { get; set; } = string.Empty;
+        public string TrackingCode { get; set; } = string.Empty;
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
     }

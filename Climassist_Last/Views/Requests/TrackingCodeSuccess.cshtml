@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "Talep Oluşturuldu";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h3 class="text-center">Talebiniz Başarıyla Oluşturuldu</h3>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-success">
+                        <p>Takip Kodunuz: <strong>@TempData["TrackingCode"]</strong></p>
+                        <p>Lütfen bu kodu not alınız. Talebinizin durumunu kontrol etmek için bu koda ihtiyacınız
+                            olacak.</p>
+                    </div>
+                    <div class=" text-center mt-3">
+                        <a href="@Url.Action("TrackRequest", "Requests")" class="btn btn-primary">Talebi Takip Et</a>
+                        <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">Ana Sayfaya Dön</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

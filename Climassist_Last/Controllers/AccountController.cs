@@ -27,10 +27,8 @@ namespace Climassist_Last.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Otomatik olarak Customer rolü atama
-                user.UserType = "Customer";
+                user.UserType = "Customer"; // Varsayılan olarak Customer
                 user.CreatedAt = DateTime.Now;
-
                 _context.Add(user);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Login", "Account");
@@ -61,9 +59,19 @@ namespace Climassist_Last.Controllers
             // Session'a kullanıcı bilgilerini kaydet
             HttpContext.Session.SetString("UserId", user.Id.ToString());
             HttpContext.Session.SetString("UserName", user.Name);
-            HttpContext.Session.SetString("UserSurname", user.SurName);  // Soyadı da ekliyoruz
+            HttpContext.Session.SetString("UserSurname", user.SurName);
+            HttpContext.Session.SetString("UserEmail", user.Email); // Email'i session'a ekliyoruz
             HttpContext.Session.SetString("UserType", user.UserType);
 
+            return RedirectToAction("Index", "Home");
+        }
+        // GET: Account/Logout
+        public IActionResult Logout()
+        {
+            // Tüm session verilerini temizle
+            HttpContext.Session.Clear();
+
+            // Ana sayfaya yönlendir
             return RedirectToAction("Index", "Home");
         }
     }

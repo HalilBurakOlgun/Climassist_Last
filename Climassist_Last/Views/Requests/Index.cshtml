@@ -1,46 +1,75 @@
 @model IEnumerable<Climassist_Last.Models.Requests>
+
 @{
-    ViewData["Title"] = "Talepler";
+    ViewData["Title"] = "Taleplerim";
 }
 
-<h1>Talepler</h1>
+<h1>Taleplerim</h1>
 
-<p>
-    <a asp-action="Create" class="btn btn-primary">Yeni Talep Oluştur</a>
-</p>
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.UserName)</th>
-            <th>@Html.DisplayNameFor(model => model.UserSurname)</th>
-            <th>@Html.DisplayNameFor(model => model.Email)</th>
-            <th>@Html.DisplayNameFor(model => model.ClientType)</th>
-            <th>@Html.DisplayNameFor(model => model.Phone)</th>
-            <th>@Html.DisplayNameFor(model => model.RequestType)</th>
-            <th>@Html.DisplayNameFor(model => model.Status)</th>
-            <th>@Html.DisplayNameFor(model => model.CreatedAt)</th>
-            <th>İşlemler</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+@if (Model.Any())
+{
+    <div class="row">
+        @foreach (var item in Model.OrderByDescending(r => r.CreatedAt))
         {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.UserName)</td>
-                <td>@Html.DisplayFor(modelItem => item.UserSurname)</td>
-                <td>@Html.DisplayFor(modelItem => item.Email)</td>
-                <td>@Html.DisplayFor(modelItem => item.ClientType)</td>
-                <td>@Html.DisplayFor(modelItem => item.Phone)</td>
-                <td>@Html.DisplayFor(modelItem => item.RequestType)</td>
-                <td>@Html.DisplayFor(modelItem => item.Status)</td>
-                <td>@Html.DisplayFor(modelItem => item.CreatedAt)</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Düzenle</a>
-                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">Detaylar</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Sil</a>
-                </td>
-            </tr>
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">@item.RequestType</h5>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Durum:</strong> @item.Status</p>
+                        <p><strong>Oluşturulma Tarihi:</strong> @item.CreatedAt.ToString("dd/MM/yyyy HH:mm")</p>
+                        <p><strong>Müşteri Tipi:</strong> @item.ClientType</p>
+                        <p><strong>Telefon:</strong> @item.Phone</p>
+                        <p><strong>Yedek Parça Tipi:</strong> @item.SparePartType</p>
+                        <p><strong>Kurtarma Süresi:</strong> @item.RecoveryTime</p>
+                        <p><strong>Ünite Tipi:</strong> @item.UnitType</p>
+                        <p><strong>Mesaj:</strong> @item.Message</p>
+                        @if (item.Status == "Beklemede")
+                        {
+                            <form asp-action="CancelRequest" asp-route-id="@item.Id" method="post">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-danger btn-sm"
+                                    onclick="return confirm('Bu talebi iptal etmek istediğinizden emin misiniz?')">
+                                    İptal Et
+                                </button>
+                            </form>
+                        }
+                    </div>
+                </div>
+            </div>
         }
-    </tbody>
-</table>
+    </div>
+}
+else
+{
+    <p>Henüz bir talebiniz bulunmamaktadır.</p>
+}
+<style>
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .card-header {
+        background-color: #f1f1f1;
+    }
+</style>
