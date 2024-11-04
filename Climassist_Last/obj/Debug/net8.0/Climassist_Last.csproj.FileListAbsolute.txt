@@ -255,3 +255,11 @@ C:\Users\Burak\Desktop\Climassist_Last\climassist_last\obj\Debug\net8.0\ref\Clim
 C:\Users\Burak\Desktop\Climassist_Last\climassist_last\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
 C:\Users\Burak\Desktop\Climassist_Last\climassist_last\bin\Debug\net8.0\MailKit.dll
 C:\Users\Burak\Desktop\Climassist_Last\climassist_last\bin\Debug\net8.0\MimeKit.dll
+C:\Users\Burak\Desktop\Climassist_Last\climassist_Last\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Burak\Desktop\Climassist_Last\climassist_Last\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Burak\Desktop\Climassist_Last\climassist_Last\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Burak\Desktop\Climassist_Last\climassist_Last\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\Burak\Desktop\Climassist_Last\climassist_Last\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Burak\Desktop\Climassist_Last\climassist_Last\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\Burak\Desktop\Climassist_Last\climassist_Last\bin\Debug\net8.0\MySqlConnector.dll
+C:\Users\Burak\Desktop\Climassist_Last\climassist_Last\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll

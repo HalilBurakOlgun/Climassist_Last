@@ -74,5 +74,25 @@ namespace Climassist_Last.Controllers
             // Ana sayfaya yönlendir
             return RedirectToAction("Index", "Home");
         }
+        // GET: Account/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Account/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Name,SurName,Email,Password,User Type")] User user)
+        {
+            if (ModelState.IsValid)
+            {
+                user.CreatedAt = DateTime.Now;
+                _context.Add(user);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index"); // Kullanıcılar listesine yönlendirin
+            }
+            return View(user);
+        }
     }
 }

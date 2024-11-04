@@ -1,0 +1,35 @@
+@model Climassist_Last.Models.User
+
+<h2>Kullanıcı Ekle</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SurName"></label>
+        <input asp-for="SurName" class="form-control" />
+        <span asp-validation-for="SurName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="UserType"></label>
+        <select asp-for="UserType" class="form-control">
+            <option value="Admin">Admin</option>
+            <option value="Staff">Staff</option>
+            <option value="Customer">Customer</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Ekle</button>
+</form>

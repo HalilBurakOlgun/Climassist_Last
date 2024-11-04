@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,7 +13,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <img src="/img/apple-touch-icon.png" alt="Climassist" height="50px" />
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
@@ -19,10 +22,10 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <div style="display: flex; gap: 10px; align-items: center; margin-left: auto;">
-                        @if (Context.Session.GetString("UserId") != null)
+                        @if (HttpContextAccessor.HttpContext.Session.GetString("UserId") != null)
                         {
-                            var userName = Context.Session.GetString("UserName");
-                            var userSurname = Context.Session.GetString("UserSurname");
+                            var userName = HttpContextAccessor.HttpContext.Session.GetString("UserName");
+                            var userSurname = HttpContextAccessor.HttpContext.Session.GetString("UserSurname");
 
                             <span class="nav-link" style="color: darkblue;">Merhaba, @userName @userSurname</span>
 
@@ -52,6 +55,11 @@
                             style="background-color: darkblue; color: white; padding: 10px 15px; border-radius: 5px; text-align: center; text-decoration: none; transition: background-color 0.3s ease;">
                             Talep Oluştur
                         </a>
+                        @if (HttpContextAccessor.HttpContext.Session.GetString("UserType") == "Admin")
+                        {
+                            <a href="@Url.Action("Create", "Account")" class="btn btn-primary"
+                                style="margin-left: 10px;">Yeni Kullanıcı Ekle</a>
+                        }
                     </div>
                 </div>
             </div>
