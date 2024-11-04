@@ -1,8 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using Climassist_Last.Models;
-using Climassist_Last.Data;
+using Climassist_Last.Models; // Model referansı
+using Climassist_Last.Data;   // DbContext referansı
 using Microsoft.EntityFrameworkCore;
-
 namespace Climassist_Last.Controllers
 {
     public class AccountController : Controller
@@ -37,15 +36,24 @@ namespace Climassist_Last.Controllers
         }
 
         // GET: Account/Login
+        // GET: Account/Login
         public IActionResult Login()
         {
-            return View();
+            // Eğer remember me cookie'si varsa ve geçerliyse otomatik giriş yap
+            var email = Request.Cookies["UserEmail"];
+            var password = Request.Cookies["UserPassword"];
+
+            if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password))
+            {
+                return Login(email, password, true).Result;
+            }
+
+            return View(new LoginViewModel());
         }
 
-        // POST: Account/Login
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(string email, string password)
+        public async Task<IActionResult> Login(string email, string password, bool rememberMe = false)
         {
             var user = await _context.Users
                 .FirstOrDefaultAsync(m => m.Email == email && m.Password == password);
@@ -53,25 +61,49 @@ namespace Climassist_Last.Controllers
             if (user == null)
             {
                 ModelState.AddModelError("", "Geçersiz email veya şifre");
-                return View();
+                return View(new LoginViewModel { Email = email });
+            }
+
+            // Remember Me işlemleri
+            if (rememberMe)
+            {
+                var cookieOptions = new CookieOptions
+                {
+                    Expires = DateTime.Now.AddDays(30), // 30 gün geçerli olacak
+                    HttpOnly = true,
+                    Secure = true // HTTPS üzerinden erişim için
+                };
+
+                Response.Cookies.Append("UserEmail", email, cookieOptions);
+                Response.Cookies.Append("UserPassword", password, cookieOptions);
+            }
+            else
+            {
+                // Remember Me seçili değilse varolan cookie'leri sil
+                Response.Cookies.Delete("UserEmail");
+                Response.Cookies.Delete("UserPassword");
             }
 
             // Session'a kullanıcı bilgilerini kaydet
             HttpContext.Session.SetString("UserId", user.Id.ToString());
             HttpContext.Session.SetString("UserName", user.Name);
             HttpContext.Session.SetString("UserSurname", user.SurName);
-            HttpContext.Session.SetString("UserEmail", user.Email); // Email'i session'a ekliyoruz
+            HttpContext.Session.SetString("UserEmail", user.Email);
             HttpContext.Session.SetString("UserType", user.UserType);
 
             return RedirectToAction("Index", "Home");
         }
-        // GET: Account/Logout
+
+        // Logout action'ını da günceleyelim
         public IActionResult Logout()
         {
-            // Tüm session verilerini temizle
+            // Session'ı temizle
             HttpContext.Session.Clear();
 
-            // Ana sayfaya yönlendir
+            // Remember Me cookie'lerini sil
+            Response.Cookies.Delete("UserEmail");
+            Response.Cookies.Delete("UserPassword");
+
             return RedirectToAction("Index", "Home");
         }
         // GET: Account/Create
@@ -93,6 +125,38 @@ namespace Climassist_Last.Controllers
                 return RedirectToAction("Index"); // Kullanıcılar listesine yönlendirin
             }
             return View(user);
+        }
+        public async Task<IActionResult> UserList(string userType)
+        {
+            if (HttpContext.Session.GetString("UserType") != "Admin")
+            {
+                return Forbid();
+            }
+
+            var query = _context.Users.AsQueryable();
+
+            // Filtreleme
+            if (!string.IsNullOrEmpty(userType))
+            {
+                query = query.Where(u => u.UserType == userType);
+            }
+
+            var users = await query.ToListAsync();
+
+            return View(users);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(UserList));
         }
     }
 }

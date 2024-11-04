@@ -24,4 +24,5 @@ namespace Climassist_Last.Models
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
     }
+
 }

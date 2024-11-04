@@ -60,7 +60,11 @@
                         @if (HttpContextAccessor.HttpContext.Session.GetString("UserType") == "Admin")
                         {
                             <a href="@Url.Action("Create", "Account")" class="btn btn-primary"
-                                style="margin-left: 10px;">Yeni Kullanıcı Ekle</a>
+                                style="background-color: darkblue; color: white; padding: 10px 15px; border-radius: 5px; text-align: center; text-decoration: none; transition: background-color 0.3s ease;">
+                                Yeni Kullanıcı Ekle</a>
+                            <a class="nav-link" href="@Url.Action("UserList", "Account")"
+                                style="background-color: darkblue; color: white; padding: 10px 15px; border-radius: 5px; text-align: center; text-decoration: none; transition: background-color 0.3s ease;">
+                                Kullanıcıları Yönet</a>
                         }
                     </div>
                 </div>
