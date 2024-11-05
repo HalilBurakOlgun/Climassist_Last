@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Climassist_Last")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ee08c64835b2ab35cd39cd00825d5aacbbc73573")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11f2cb9c44012e136eab06b110751a588f8fc68b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Climassist_Last")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Climassist_Last")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

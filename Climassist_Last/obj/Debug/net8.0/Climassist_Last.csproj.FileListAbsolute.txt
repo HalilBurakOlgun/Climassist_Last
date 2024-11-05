@@ -263,3 +263,9 @@ C:\Users\Burak\Desktop\Climassist_Last\climassist_Last\bin\Debug\net8.0\Microsof
 C:\Users\Burak\Desktop\Climassist_Last\climassist_Last\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\Users\Burak\Desktop\Climassist_Last\climassist_Last\bin\Debug\net8.0\MySqlConnector.dll
 C:\Users\Burak\Desktop\Climassist_Last\climassist_Last\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\Burak\Desktop\Climassist_Last\Climassist_Last\bin\Debug\net8.0\publish\web.config
+C:\Users\Burak\Desktop\Climassist_Last\Climassist_Last\bin\Debug\net8.0\publish\appsettings.Development.json
+C:\Users\Burak\Desktop\Climassist_Last\Climassist_Last\bin\Debug\net8.0\publish\appsettings.json
+C:\Users\Burak\Desktop\Climassist_Last\Climassist_Last\bin\Debug\net8.0\publish\Climassist_Last.deps.json
+C:\Users\Burak\Desktop\Climassist_Last\Climassist_Last\bin\Debug\net8.0\publish\Climassist_Last.runtimeconfig.json
+C:\Users\Burak\Desktop\Climassist_Last\Climassist_Last\bin\Debug\net8.0\publish\wwwroot\vendor\bootstrap-icons\bootstrap-icons.json

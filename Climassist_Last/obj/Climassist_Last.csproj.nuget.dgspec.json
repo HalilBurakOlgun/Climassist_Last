@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Burak\\Desktop\\Climassist_Last\\climassist_Last\\Climassist_Last.csproj": {}
+    "C:\\Users\\Burak\\Desktop\\Climassist_Last\\Climassist_Last\\Climassist_Last.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Burak\\Desktop\\Climassist_Last\\climassist_Last\\Climassist_Last.csproj": {
+    "C:\\Users\\Burak\\Desktop\\Climassist_Last\\Climassist_Last\\Climassist_Last.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\climassist_Last\\Climassist_Last.csproj",
+        "projectUniqueName": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\Climassist_Last\\Climassist_Last.csproj",
         "projectName": "Climassist_Last",
-        "projectPath": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\climassist_Last\\Climassist_Last.csproj",
+        "projectPath": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\Climassist_Last\\Climassist_Last.csproj",
         "packagesPath": "C:\\Users\\Burak\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\climassist_Last\\obj\\",
+        "outputPath": "C:\\Users\\Burak\\Desktop\\Climassist_Last\\Climassist_Last\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Burak\\AppData\\Roaming\\NuGet\\NuGet.Config",

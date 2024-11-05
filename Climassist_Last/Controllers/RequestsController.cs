@@ -22,13 +22,11 @@ namespace Climassist_Last.Controllers
 
             if (string.IsNullOrEmpty(userId))
             {
-                // Giriş yapmamış kullanıcıları TrackRequest sayfasına yönlendir
                 return RedirectToAction("TrackRequest");
             }
 
             if (userType == "Customer")
             {
-                // Customer sadece kendi taleplerini görür
                 var userName = HttpContext.Session.GetString("UserName");
                 var userSurname = HttpContext.Session.GetString("UserSurname");
                 var requests = await _context.Requests
@@ -39,7 +37,6 @@ namespace Climassist_Last.Controllers
             }
             else if (userType == "Admin" || userType == "Staff")
             {
-                // Admin ve Staff tüm talepleri görür
                 var allRequests = await _context.Requests.ToListAsync();
                 return View(allRequests);
             }

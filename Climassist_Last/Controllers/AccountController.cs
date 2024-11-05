@@ -26,6 +26,14 @@ namespace Climassist_Last.Controllers
         {
             if (ModelState.IsValid)
             {
+                // E-posta adresinin daha önce kayıtlı olup olmadığını kontrol et
+                var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == user.Email);
+                if (existingUser != null)
+                {
+                    ModelState.AddModelError("Email", "Bu e-posta adresi zaten kayıtlı.");
+                    return View(user);
+                }
+
                 user.UserType = "Customer"; // Varsayılan olarak Customer
                 user.CreatedAt = DateTime.Now;
                 _context.Add(user);
